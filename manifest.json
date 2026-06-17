@@ -1,0 +1,63 @@
+{
+  "name": "NUR TV — Free Live TV Bangladesh",
+  "short_name": "NUR TV",
+  "description": "বাংলাদেশের সেরা ফ্রি লাইভ টিভি। ১০০+ চ্যানেল বিনামূল্যে দেখুন।",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f0f2f5",
+  "theme_color": "#0d1117",
+  "orientation": "any",
+  "lang": "bn",
+  "dir": "ltr",
+  "categories": ["entertainment", "video"],
+  "icons": [
+    {
+      "src": "/nurtv192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/nurtv192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/nurtv512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/nurtv512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/icons/screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "NUR TV Home Screen"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "বাংলা চ্যানেল",
+      "short_name": "Bangla",
+      "url": "/?cat=Bangla",
+      "icons": [{ "src": "/nurtv192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Sports",
+      "short_name": "Sports",
+      "url": "/?cat=Sports",
+      "icons": [{ "src": "/nurtv192.png", "sizes": "192x192" }]
+    }
+  ]
+}
