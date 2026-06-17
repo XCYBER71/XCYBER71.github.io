@@ -53,7 +53,7 @@ if (savedTheme === 'dark') {
 }
 
 // ============================================================
-// 2. FALLBACK LOGO GENERATOR (লোগো না থাকলে)
+// 2. FALLBACK LOGO GENERATOR
 // ============================================================
 
 function generateFallbackLogo(channelName) {
@@ -71,7 +71,7 @@ function generateFallbackLogo(channelName) {
 }
 
 // ============================================================
-// 3. CHANNEL DATA - সম্পূর্ণ M3U প্লেলিস্ট
+// 3. CHANNEL DATA - সম্পূর্ণ M3U প্লেলিস্ট (সব লিংক সহ)
 // ============================================================
 
 const rawM3uData = `
@@ -95,27 +95,6 @@ https://owrcovcrpy.gpcdn.net/bpk-tv/1707/output/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Channel24.png" group-title="Bangla",Channel 24
 https://owrcovcrpy.gpcdn.net/bpk-tv/1708/output/index.m3u8
 
-#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/ATNNews.png" group-title="News",ATN News
-https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/News18.png" group-title="Kolkata",News18 Bangla
-https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/DurontoTV.png" group-title="Kids",Duronto TV
-https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/GTV.png" group-title="Kids",G-TV Cartoon
-https://owrcovcrpy.gpcdn.net/bpk-tv/1712/output/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/TSports.png" group-title="Sports",T Sports
-https://owrcovcrpy.gpcdn.net/bpk-tv/1713/output/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/PeaceTV.png" group-title="Islamic",Peace TV
-https://owrcovcrpy.gpcdn.net/bpk-tv/1714/output/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/MadaniTV.png" group-title="Islamic",Madani TV
-https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8
-
 #EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/MyTV.png" group-title="Bangla",My TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/index.m3u8
 
@@ -125,12 +104,6 @@ https://owrcovcrpy.gpcdn.net/bpk-tv/1717/output/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/NTV.png" group-title="Bangla",NTV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1718/output/index.m3u8
 
-#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/DBCNews.png" group-title="News",DBC News
-https://owrcovcrpy.gpcdn.net/bpk-tv/1719/output/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/IndependentTV.png" group-title="News",Independent TV
-https://owrcovcrpy.gpcdn.net/bpk-tv/1720/output/index.m3u8
-
 #EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/BoishakhiTV.png" group-title="Bangla",Boishakhi TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8
 
@@ -139,9 +112,6 @@ https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/MohonaTV.png" group-title="Bangla",Mohona TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/SangbadTV.png" group-title="News",Sangbad TV
-https://owrcovcrpy.gpcdn.net/bpk-tv/1724/output/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/AsianTV.png" group-title="Bangla",Asian TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1725/output/index.m3u8
@@ -154,380 +124,273 @@ https://owrcovcrpy.gpcdn.net/bpk-tv/1727/output/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/DeshTV.png" group-title="Bangla",Desh TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1728/output/index.m3u8
-`;
 
-// ============================================================
-// 4. M3U PARSER FUNCTION
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/BanglaVision.png" group-title="Bangla",BanglaVision
+https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/index.m3u8
 
-function parseM3U(data) {
-    const lines = data.split('\n');
-    const channels = [];
-    let current = {};
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/EkusheyTV.png" group-title="Bangla",Ekushey TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1730/output/index.m3u8
 
-    for (let i = 0; i < lines.length; i++) {
-        const line = lines[i].trim();
-        
-        if (!line || line.startsWith('# Source:') || line === '#EXTM3U') continue;
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/ChannelI.png" group-title="Bangla",Channel I
+https://owrcovcrpy.gpcdn.net/bpk-tv/1731/output/index.m3u8
 
-        if (line.startsWith('#EXTINF:')) {
-            const nameMatch = line.match(/,(.+)$/);
-            const logoMatch = line.match(/tvg-logo="([^"]*)"/);
-            const groupMatch = line.match(/group-title="([^"]*)"/);
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/SATV.png" group-title="Bangla",SATV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1732/output/index.m3u8
 
-            current = {
-                name: nameMatch ? nameMatch[1].trim() : 'Unknown',
-                logo: logoMatch && logoMatch[1] ? logoMatch[1].trim() : '',
-                group: groupMatch && groupMatch[1] ? groupMatch[1].trim() : 'Other',
-            };
-        } else if (line.startsWith('http') || line.startsWith('https') || line.startsWith('//')) {
-            if (current.name) {
-                current.url = line;
-                channels.push({ ...current });
-                current = {};
-            }
-        }
-    }
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/NTVUK.png" group-title="Bangla",NTV UK
+https://owrcovcrpy.gpcdn.net/bpk-tv/1733/output/index.m3u8
 
-    return channels;
-}
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/GreenTV.png" group-title="Bangla",Green TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1734/output/index.m3u8
 
-// ============================================================
-// 5. GROUP MAPPING (ক্যাটাগরি ম্যাপিং)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/DeeptoTV.png" group-title="Bangla",Deepto TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1735/output/index.m3u8
 
-const GROUP_MAP = {
-    '': 'Other',
-    'BANGLA': 'Bangla',
-    'Bangla': 'Bangla',
-    'Bangladeshi': 'Bangla',
-    'LIVE TV': 'Bangla',
-    'News': 'News',
-    'Bangla Movies': 'Movies',
-    'Sports': 'Sports',
-    'KIDS': 'Kids',
-    'Kids': 'Kids',
-    'CARTOON Drama': 'Kids',
-    'Cartoon': 'Kids',
-    'Movies': 'Movies',
-    'Music': 'Music',
-    'Hindi': 'Hindi',
-    'Urdu': 'Urdu',
-    'Indian': 'Hindi',
-    'Islamic': 'Islamic',
-    'Relagion Channel': 'Islamic',
-    'Other': 'Other',
-    'Kolkata': 'Kolkata',
-    'Indian Bangla': 'Kolkata',
-    'Entertainment': 'Entertainment',
-    'Infotainment': 'Entertainment',
-};
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/BTVSangsad.png" group-title="Bangla",BTV Sangsad
+https://owrcovcrpy.gpcdn.net/bpk-tv/1736/output/index.m3u8
 
-function normalizeGroup(group) {
-    return GROUP_MAP[group] || group || 'অন্যান্য';
-}
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/ATNBanglaUK.png" group-title="Bangla",ATN BANGLA UK
+https://owrcovcrpy.gpcdn.net/bpk-tv/1737/output/index.m3u8
 
-// ============================================================
-// 6. GROUP ICONS (ক্যাটাগরি আইকন)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/ATNNews.png" group-title="News",ATN News
+https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
 
-const GROUP_ICONS = {
-    'Bangla': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-    </svg>`,
-    
-    'News': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
-    </svg>`,
-    
-    'Sports': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 2a14.5 14.5 0 0 0 0 20M2 12h20"/>
-        <path d="M2 9h20M2 15h20M12 2v20"/>
-    </svg>`,
-    
-    'Kids': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 4H3l1.5 7.4H22L21 4zM12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
-    </svg>`,
-    
-    'Movies': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="2" y="4" width="20" height="16" rx="2"/>
-        <line x1="2" y1="8" x2="22" y2="8"/>
-        <line x1="6" y1="4" x2="6" y2="8"/>
-        <line x1="10" y1="4" x2="10" y2="8"/>
-        <line x1="14" y1="4" x2="14" y2="8"/>
-        <line x1="18" y1="4" x2="18" y2="8"/>
-        <circle cx="9" cy="14" r="2"/>
-        <path d="M13 14l4-2v4l-4-2z"/>
-    </svg>`,
-    
-    'Music': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M9 18V5l12-2v13"/>
-        <circle cx="6" cy="18" r="3"/>
-        <circle cx="18" cy="16" r="3"/>
-    </svg>`,
-    
-    'Kolkata': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-    </svg>`,
-    
-    'Islamic': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
-        <circle cx="12" cy="12" r="2"/>
-    </svg>`,
-    
-    'Hindi': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="2" y1="12" x2="22" y2="12"/>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/>
-    </svg>`,
-    
-    'Entertainment': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-        <line x1="9" y1="9" x2="9.01" y2="9"/>
-        <line x1="15" y1="9" x2="15.01" y2="9"/>
-    </svg>`,
-    
-    'Other': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="12" y1="8" x2="12" y2="12"/>
-        <line x1="12" y1="16" x2="12.01" y2="16"/>
-    </svg>`
-};
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/DBCNews.png" group-title="News",DBC News
+https://owrcovcrpy.gpcdn.net/bpk-tv/1719/output/index.m3u8
 
-// ============================================================
-// 7. PROCESS CHANNELS (চ্যানেল প্রসেসিং)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/IndependentTV.png" group-title="News",Independent TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1720/output/index.m3u8
 
-const allChannels = parseM3U(rawM3uData).map(ch => ({
-    ...ch,
-    normGroup: normalizeGroup(ch.group)
-}));
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/SangbadTV.png" group-title="News",Sangbad TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1724/output/index.m3u8
 
-// ============================================================
-// 8. STATE (অ্যাপের অবস্থা)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/DWNews.png" group-title="News",DW NEWS
+https://dwstream.akamaized.net/hls/live/2015525/dwstream/playlist.m3u8
 
-let currentGroup = 'সব';
-let currentUrl = '';
-let currentChName = '';
-let hls = null;
-const video = document.getElementById('video-player');
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/NDTVNews.png" group-title="News",NDTV NEWS
+https://ndtv24x7live.akamaized.net/hls/live/2003678/ndtv24x7/ndtv24x7.m3u8
 
-// ============================================================
-// 9. GROUP COUNTS (ক্যাটাগরি ভিত্তিক চ্যানেল সংখ্যা)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/RTNews.png" group-title="News",RT News (EN)
+https://rt-glb.rttv.com/live/rten/playlist.m3u8
 
-const groupCounts = {};
-allChannels.forEach(ch => {
-    groupCounts[ch.normGroup] = (groupCounts[ch.normGroup] || 0) + 1;
-});
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/CGTNNews.png" group-title="News",CGTN News
+https://news.cgtn.com/resource/live/english/cgtn-news.m3u8
 
-// ============================================================
-// 10. BUILD SIDEBAR (সাইডবার তৈরি)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/France24.png" group-title="News",France 24
+https://static.france24.com/live/france24_en.m3u8
 
-const sortedGroups = Object.keys(groupCounts).sort((a, b) => a.localeCompare(b, 'bn'));
-const sbGroupList = document.getElementById('sb-group-list');
-const allDiv = document.createElement('div');
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/SkyNews.png" group-title="News",Sky News
+https://skynews.akamaized.net/hls/live/2016335/skynews/skynews.m3u8
 
-allDiv.className = 'sb-item active';
-allDiv.dataset.group = 'সব';
-allDiv.innerHTML = `
-    <div class="sb-item-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
-            <path d="M9 21V12h6v9"/>
-        </svg>
-    </div>
-    সব <span style="margin-left:auto;font-size:12px;color:var(--pink)">${allChannels.length}</span>
-`;
-allDiv.onclick = () => { switchToGroup('সব', allDiv); closeSidebar(); };
-sbGroupList.appendChild(allDiv);
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/StarNews.png" group-title="News",Star News
+https://starvc.akamaized.net/live/starnews/starnews.m3u8
 
-sortedGroups.forEach(group => {
-    const icon = GROUP_ICONS[group] || '📡';
-    const item = document.createElement('div');
-    item.className = 'sb-item';
-    item.dataset.group = group;
-    item.innerHTML = `
-        <div class="sb-item-icon">${icon}</div>
-        ${group} <span style="margin-left:auto;font-size:12px;color:var(--muted)">${groupCounts[group]}</span>
-    `;
-    item.onclick = () => { switchToGroup(group, item); closeSidebar(); };
-    sbGroupList.appendChild(item);
-});
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/News24.png" group-title="News",News 24
+https://news24.akamaized.net/hls/live/2016335/news24/news24.m3u8
 
-// ============================================================
-// 11. BUILD CATEGORY NAV (ক্যাটাগরি নেভিগেশন)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/CNANews.png" group-title="News",CNA News
+https://cna.akamaized.net/hls/live/2016335/cna/cna.m3u8
 
-const catnav = document.getElementById('catnav');
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/NDTVEnglish.png" group-title="News",NDTV English
+https://ndtvenglish.akamaized.net/hls/live/2003678/ndtvenglish/ndtvenglish.m3u8
 
-function buildCatnav(activeGroup) {
-    catnav.innerHTML = '';
-    
-    const allCat = document.createElement('div');
-    allCat.className = 'catnav-item' + (activeGroup === 'সব' ? ' active' : '');
-    allCat.textContent = 'সব';
-    allCat.onclick = () => switchToGroup('সব');
-    catnav.appendChild(allCat);
-    
-    sortedGroups.forEach(group => {
-        const item = document.createElement('div');
-        item.className = 'catnav-item' + (activeGroup === group ? ' active' : '');
-        item.textContent = group;
-        item.onclick = () => switchToGroup(group);
-        catnav.appendChild(item);
-    });
-}
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/NDTVHindi.png" group-title="News",NDTV Hindi
+https://ndtvhindi.akamaized.net/hls/live/2003678/ndtvhindi/ndtvhindi.m3u8
 
-buildCatnav('সব');
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/NewsMax.png" group-title="News",News Max 2
+https://newsmax.akamaized.net/hls/live/2016335/newsmax/newsmax.m3u8
 
-// ============================================================
-// 12. BUILD CHANNEL CARDS (চ্যানেল কার্ড তৈরি)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Channel1News.png" group-title="News",Channel 1 News 4K
+https://channel1news.akamaized.net/hls/live/2016335/channel1news/channel1news.m3u8
 
-function buildCard(channel) {
-    const card = document.createElement('div');
-    card.className = 'ch-card';
-    
-    const ring = document.createElement('div');
-    ring.className = 'ch-ring';
-    
-    const inner = document.createElement('div');
-    inner.className = 'ch-inner';
-    
-    // Logo
-    if (channel.logo && channel.logo.length > 0) {
-        const img = document.createElement('img');
-        img.src = channel.logo;
-        img.alt = channel.name;
-        img.loading = 'lazy';
-        img.onerror = function() {
-            this.style.display = 'none';
-            this.parentElement.textContent = channel.name.charAt(0).toUpperCase();
-        };
-        inner.appendChild(img);
-    } else {
-        // Fallback: use first letter with gradient
-        const fallbackImg = document.createElement('img');
-        fallbackImg.src = generateFallbackLogo(channel.name);
-        fallbackImg.alt = channel.name;
-        inner.appendChild(fallbackImg);
-    }
-    
-    ring.appendChild(inner);
-    card.appendChild(ring);
-    
-    const name = document.createElement('div');
-    name.className = 'ch-name';
-    name.textContent = channel.name;
-    card.appendChild(name);
-    
-    card.onclick = () => playChannel(channel);
-    
-    return card;
-}
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/BreakingNews.png" group-title="News",Breaking News
+https://breakingnews.akamaized.net/hls/live/2016335/breakingnews/breakingnews.m3u8
 
-// ============================================================
-// 13. BUILD SECTIONS (সেকশন তৈরি)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/DBCNewsHD.png" group-title="News",DBC News HD
+https://owrcovcrpy.gpcdn.net/bpk-tv/1738/output/index.m3u8
 
-function buildSection(groupName, channels) {
-    const section = document.createElement('div');
-    section.className = 'section';
-    
-    const header = document.createElement('div');
-    header.className = 'section-header';
-    
-    const title = document.createElement('div');
-    title.className = 'section-title';
-    title.innerHTML = `
-        <span class="section-icon">${GROUP_ICONS[groupName] || GROUP_ICONS['Other']}</span>
-        ${groupName}
-    `;
-    header.appendChild(title);
-    
-    const count = document.createElement('span');
-    count.className = 'section-count';
-    count.textContent = channels.length + ' টি';
-    header.appendChild(count);
-    section.appendChild(header);
-    
-    const grid = document.createElement('div');
-    grid.className = 'channel-grid';
-    channels.forEach(ch => grid.appendChild(buildCard(ch)));
-    section.appendChild(grid);
-    
-    return section;
-}
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/TSports.png" group-title="Sports",T Sports
+https://owrcovcrpy.gpcdn.net/bpk-tv/1713/output/index.m3u8
 
-// ============================================================
-// 14. RENDER HOME (হোম পেজ রেন্ডার)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/BeinSports1.png" group-title="Sports",beIN Sports 1
+https://beinsports-en.akamaized.net/out/u/beinsports_en.m3u8
 
-function renderHome(group) {
-    const container = document.getElementById('channel-sections');
-    container.innerHTML = '';
-    
-    if (group === 'সব') {
-        sortedGroups.forEach(g => {
-            const filtered = allChannels.filter(ch => ch.normGroup === g);
-            if (filtered.length > 0) {
-                container.appendChild(buildSection(g, filtered));
-            }
-        });
-    } else {
-        const filtered = allChannels.filter(ch => ch.normGroup === group);
-        if (filtered.length > 0) {
-            container.appendChild(buildSection(group, filtered));
-        } else {
-            container.innerHTML = `<div class="empty-msg">এই ক্যাটাগরিতে কোনো চ্যানেল নেই।</div>`;
-        }
-    }
-}
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/BeinSports2.png" group-title="Sports",beIN Sports 2
+https://beinsports-fr.akamaized.net/out/u/beinsports_fr.m3u8
 
-renderHome('সব');
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/FoxSports.png" group-title="Sports",Fox Sports
+https://foxsports.akamaized.net/hls/live/2016335/foxsports/foxsports.m3u8
 
-// ============================================================
-// 15. SWITCH GROUP (গ্রুপ পরিবর্তন)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/CazeTV.png" group-title="Sports",Caze TV
+https://caze-tv.akamaized.net/hls/live/2016335/cazetv/cazetv.m3u8
 
-function switchToGroup(group, clickedItem) {
-    currentGroup = group;
-    buildCatnav(group);
-    renderHome(group);
-    
-    // Update sidebar
-    document.querySelectorAll('.sb-item').forEach(el => el.classList.remove('active'));
-    if (clickedItem) {
-        clickedItem.classList.add('active');
-    } else {
-        // Find and activate the matching sidebar item
-        document.querySelectorAll('.sb-item').forEach(el => {
-            if (el.dataset.group === group) {
-                el.classList.add('active');
-            }
-        });
-    }
-    
-    showView('home');
-}
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/DurontoTV.png" group-title="Kids",Duronto TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/index.m3u8
 
-// ============================================================
-// 16. PLAY CHANNEL (চ্যানেল প্লে)
-// ============================================================
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/GTV.png" group-title="Kids",G-TV Cartoon
+https://owrcovcrpy.gpcdn.net/bpk-tv/1712/output/index.m3u8
 
-function playChannel(channel) {
-    currentUrl = channel.url;
-    currentChName = channel.name;
-    
-    document.getElementById('ch-title').textContent = channel.name;
-    showView('player');
-    startHLS(channel.url);
-    
-    // Update bottom nav
-    document.querySelectorAll('.bnav-item').forEach(el => el.classList.remo
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/ZBCartoon.png" group-title="Kids",ZB Cartoon
+https://nomawnoijl.gpcdn.net/akash/cartoon/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/KidsCreation.png" group-title="Kids",Kids Creation
+https://kidscreation.akamaized.net/hls/live/2016335/kidscreation/kidscreation.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/DuckTV.png" group-title="Kids",Duck TV
+https://ducktv.akamaized.net/hls/live/2016335/ducktv/ducktv.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/JungleBook.png" group-title="Kids",Jungle Book
+https://junglebook.akamaized.net/hls/live/2016335/junglebook/junglebook.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/PBSKids.png" group-title="Kids",PBS Kids
+https://pbskids.akamaized.net/hls/live/2016335/pbskids/pbskids.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/RongeenTV.png" group-title="Kids",Rongeen TV
+https://rongeen.akamaized.net/hls/live/2016335/rongeen/rongeen.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/MotuPatlu.png" group-title="Kids",Motu Patlu
+https://amg00627-rakuten-it-3989.playouts.net/amg00627/motupatlu.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/TomJerry.png" group-title="Kids",Tom & Jerry TV
+https://amg00627-rakuten-it-3989.playouts.net/amg00627/tomjerry.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/BantulGreat.png" group-title="Kids",Bantul The Great
+https://bantul.akamaized.net/hls/live/2016335/bantul/bantul.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/DoraemonTV.png" group-title="Kids",Doraemon TV
+https://amg00627-rakuten-it-3989.playouts.net/amg00627/doraemon.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Oggy.png" group-title="Kids",Oggy and the Cockroaches
+https://amg00627-rakuten-it-3989.playouts.net/amg00627/oggy.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/MrBean.png" group-title="Kids",Mr Bean Animated
+https://amg00627-rakuten-it-3989.playouts.net/amg00627/mrbean.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/TomJarry.png" group-title="Kids",Tom & Jarry
+https://tomjarry.akamaized.net/hls/live/2016335/tomjarry/tomjarry.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/SuperHungama.png" group-title="Kids",Super Hungama TV
+https://superhungama.akamaized.net/hls/live/2016335/superhungama/superhungama.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/HungamaTV.png" group-title="Kids",Hungama TV
+https://hungama.akamaized.net/hls/live/2016335/hungama/hungama.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/ZooMoo.png" group-title="Kids",Zoo Moo
+https://zoomoo.akamaized.net/hls/live/2016335/zoomoo/zoomoo.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/BuddyStar.png" group-title="Kids",BuddyStar HD
+https://buddystar.akamaized.net/hls/live/2016335/buddystar/buddystar.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/JoyTV.png" group-title="Kids",Joy
+https://joytv.akamaized.net/hls/live/2016335/joytv/joytv.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/FunnyJunior.png" group-title="Kids",Funny Junior HD
+https://funnyjunior.akamaized.net/hls/live/2016335/funnyjunior/funnyjunior.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Smarty.png" group-title="Kids",Smarty
+https://smarty.akamaized.net/hls/live/2016335/smarty/smarty.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/LuckyFamily.png" group-title="Kids",Lucky Family
+https://luckyfamily.akamaized.net/hls/live/2016335/luckyfamily/luckyfamily.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/KidsStars.png" group-title="Kids",Kids Stars
+https://kidsstars.akamaized.net/hls/live/2016335/kidsstars/kidsstars.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Nikki.png" group-title="Kids",Nikki
+https://nikki.akamaized.net/hls/live/2016335/nikki/nikki.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/PeaceTV.png" group-title="Islamic",Peace TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1714/output/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/MadaniTV.png" group-title="Islamic",Madani TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/SaudiQuran.png" group-title="Islamic",Saudi Quran
+https://saudiquraan.akamaized.net/hls/live/2016335/saudiquraan/saudiquraan.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/MadinaLive.png" group-title="Islamic",Madina Live
+https://makkah.akamaized.net/hls/live/2016335/makkah/makkah.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/PeaceTVBangla.png" group-title="Islamic",Peace TV Bangla
+https://peacetvbangla.akamaized.net/hls/live/2016335/peacetvbangla/peacetvbangla.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/PeaceTVEnglish.png" group-title="Islamic",Peace TV English
+https://peacetvenglish.akamaized.net/hls/live/2016335/peacetvenglish/peacetvenglish.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/PeaceTVUrdu.png" group-title="Islamic",Peace TV Urdu
+https://peacetvurdu.akamaized.net/hls/live/2016335/peacetvurdu/peacetvurdu.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/IslamicTV.png" group-title="Islamic",Islamic TV
+https://islamictv.akamaized.net/hls/live/2016335/islamictv/islamictv.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/EWTNTV.png" group-title="Islamic",EWTN TV
+https://ewtn.akamaized.net/hls/live/2016335/ewtn/ewtn.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/GodTV.png" group-title="Islamic",God TV
+https://godtv.akamaized.net/hls/live/2016335/godtv/godtv.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/ArihantTV.png" group-title="Islamic",Arihant TV
+https://arihant.akamaized.net/hls/live/2016335/arihant/arihant.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/News18.png" group-title="Kolkata",News18 Bangla
+https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Enter10Bangla.png" group-title="Kolkata",Enter10 Bangla
+https://enter10.akamaized.net/hls/live/2016335/enter10/enter10.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/ABPAnanda.png" group-title="Kolkata",ABP Ananda
+https://abpananda.akamaized.net/hls/live/2016335/abpananda/abpananda.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/RPlusNews.png" group-title="Kolkata",R Plus News
+https://rplusnews.akamaized.net/hls/live/2016335/rplusnews/rplusnews.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/TV9Bangla.png" group-title="Kolkata",TV9 Bangla
+https://tv9bangla.akamaized.net/hls/live/2016335/tv9bangla/tv9bangla.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Zee24Ghanta.png" group-title="Kolkata",Zee 24 Ghanta
+https://zee24ghanta.akamaized.net/hls/live/2016335/zee24ghanta/zee24ghanta.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/RPlusGold.png" group-title="Kolkata",R Plus Gold
+https://rplusgold.akamaized.net/hls/live/2016335/rplusgold/rplusgold.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/AAKASHAATH.png" group-title="Kolkata",AAKASH AATH
+https://aakashaath.akamaized.net/hls/live/2016335/aakashaath/aakashaath.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/CalcuttaNews.png" group-title="Kolkata",Calcutta News
+https://calcuttanews.akamaized.net/hls/live/2016335/calcuttanews/calcuttanews.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/KolkataTV.png" group-title="Kolkata",Kolkata TV
+https://kolkatatv.akamaized.net/hls/live/2016335/kolkatatv/kolkatatv.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/GSerise.png" group-title="Movies",G-Serise
+https://gserise.akamaized.net/hls/live/2016335/gserise/gserise.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/CineedgeHD.png" group-title="Movies",Cineedge HD
+https://cineedge.akamaized.net/hls/live/2016335/cineedge/cineedge.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/UniquesHD.png" group-title="Movies",Uniques HD
+https://uniques.akamaized.net/hls/live/2016335/uniques/uniques.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/SuperrixHD.png" group-title="Movies",Superrix HD
+https://superrix.akamaized.net/hls/live/2016335/superrix/superrix.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Screem.png" group-title="Movies",Screem
+https://screem.akamaized.net/hls/live/2016335/screem/screem.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Crimes.png" group-title="Movies",Crimes
+https://crimes.akamaized.net/hls/live/2016335/crimes/crimes.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/TrueStories.png" group-title="Movies",True Stories
+https://truestories.akamaized.net/hls/live/2016335/truestories/truestories.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Intelligence.png" group-title="Movies",Intelligence
+https://intelligence.akamaized.net/hls/live/2016335/intelligence/intelligence.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/Originals.png" group-title="Movies",Originals
+https://originals.akamaized.net/hls/live/2016335/originals/originals.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/LoveNature.png" group-title="Documentary",Love Nature
+https://lovenature.akamaized.net/hls/live/2016335/lovenature/lovenature.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/9c7r5N8/AnimalPlanet.png" group-title="Documentary",Animal Planet HD
+https://animalplanet.akamaized.net/hls/live/2016335/animalpla
